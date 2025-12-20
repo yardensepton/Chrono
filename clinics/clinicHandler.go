@@ -12,6 +12,7 @@ func RegisterClinicRoutes(router *gin.Engine) {
 	}
 }
 
+
 func getClinics(c *gin.Context) {
 	c.JSON(200, gin.H{"Clinics": []string{"clinic1", "clinic2"}})
 }

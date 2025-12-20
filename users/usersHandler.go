@@ -9,6 +9,7 @@ func RegisterUserRoutes(router *gin.Engine) {
 	{
 		group.GET("", getUsers)
 		group.GET("/:id", getUser)
+		group.POST("/", createNewUser)
 	}
 }
 
@@ -45,4 +46,21 @@ func getUser(c *gin.Context) {
 		Role:        "user",
 	}
 	c.JSON(200, user)
+}
+
+// @Summary Create a user
+// @Description Create a new user
+// @Tags users
+// @Param user body UserRequest true "User details"
+// @Produce json
+// @Success 201 {object} User
+// @Router /users [post]
+func createNewUser(c *gin.Context) {
+	var newUser UserRequest
+	if err := c.ShouldBindJSON(&newUser); err != nil {
+		c.JSON(400, gin.H{"error": err.Error()})
+		return
+	}
+	var createdUser User = NewUser(newUser)
+	c.JSON(201, createdUser)
 }

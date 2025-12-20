@@ -2,7 +2,7 @@ package router
 
 import (
 	"my-go-server/clinics"
-	_ "my-go-server/docs" // <-- חשוב! underscore
+	_ "my-go-server/docs"
 	"my-go-server/users"
 
 	"github.com/gin-gonic/gin"

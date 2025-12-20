@@ -1,6 +1,8 @@
 definitions:
   users.User:
     properties:
+      createdAt:
+        type: string
       email:
         type: string
       id:
@@ -13,6 +15,32 @@ definitions:
         type: string
       role:
         type: string
+      updatedAt:
+        type: string
+    required:
+    - email
+    - lastName
+    - name
+    - phoneNumber
+    type: object
+  users.UserRequest:
+    properties:
+      email:
+        type: string
+      lastName:
+        type: string
+      name:
+        type: string
+      phoneNumber:
+        type: string
+      role:
+        type: string
+    required:
+    - email
+    - lastName
+    - name
+    - phoneNumber
+    - role
     type: object
 info:
   contact: {}
@@ -30,6 +58,25 @@ paths:
               $ref: '#/definitions/users.User'
             type: array
       summary: Get all users
+      tags:
+      - users
+    post:
+      description: Create a new user
+      parameters:
+      - description: User details
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/users.UserRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/users.User'
+      summary: Create a user
       tags:
       - users
   /users/{id}:

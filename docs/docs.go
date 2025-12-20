@@ -36,6 +36,35 @@ const docTemplate = `{
                         }
                     }
                 }
+            },
+            "post": {
+                "description": "Create a new user",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "users"
+                ],
+                "summary": "Create a user",
+                "parameters": [
+                    {
+                        "description": "User details",
+                        "name": "user",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/users.UserRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Created",
+                        "schema": {
+                            "$ref": "#/definitions/users.User"
+                        }
+                    }
+                }
             }
         },
         "/users/{id}": {
@@ -71,11 +100,50 @@ const docTemplate = `{
     "definitions": {
         "users.User": {
             "type": "object",
+            "required": [
+                "email",
+                "lastName",
+                "name",
+                "phoneNumber"
+            ],
             "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
                 "email": {
                     "type": "string"
                 },
                 "id": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "phoneNumber": {
+                    "type": "string"
+                },
+                "role": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            }
+        },
+        "users.UserRequest": {
+            "type": "object",
+            "required": [
+                "email",
+                "lastName",
+                "name",
+                "phoneNumber",
+                "role"
+            ],
+            "properties": {
+                "email": {
                     "type": "string"
                 },
                 "lastName": {
