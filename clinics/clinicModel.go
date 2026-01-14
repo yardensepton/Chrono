@@ -3,11 +3,11 @@ package clinics
 import "github.com/google/uuid"
 
 type Clinic struct {
-	ID      string `json:"id"`
-	Name    string `json:"name"`
-	Address string `json:"address"`
-	Phone   string `json:"phone"`
-	Specialty string `json:"specialty"`
+	ID      string `gorm:"primaryKey" json:"id"`
+	Name    string `gorm:"not null" json:"name"`
+	Address string `gorm:"not null" json:"address"`
+	Phone   string `gorm:"not null" json:"phone"`
+	Specialty string `gorm:"not null" json:"specialty"`
 }
 
 func NewClinic(req ClinicRequest) Clinic {

@@ -1,4 +1,4 @@
-package clinics
+package routeres
 
 import (
 	"github.com/gin-gonic/gin"
@@ -11,7 +11,6 @@ func RegisterClinicRoutes(router *gin.Engine) {
 		group.GET("/:id", getClinic)
 	}
 }
-
 
 func getClinics(c *gin.Context) {
 	c.JSON(200, gin.H{"Clinics": []string{"clinic1", "clinic2"}})
