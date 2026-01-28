@@ -10,9 +10,7 @@ A Go web server with MongoDB Atlas integration and internationalization support.
 
 ### Environment Setup
 Create a `.env` file:
-```env
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/database?retryWrites=true&w=majority
-```
+```env```
 
 ### Development with Live Reloading
 
