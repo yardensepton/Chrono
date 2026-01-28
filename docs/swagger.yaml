@@ -1,0 +1,101 @@
+definitions:
+  users.User:
+    properties:
+      createdAt:
+        type: string
+      email:
+        type: string
+      id:
+        type: string
+      lastName:
+        type: string
+      name:
+        type: string
+      phoneNumber:
+        type: string
+      role:
+        type: string
+      updatedAt:
+        type: string
+    required:
+    - email
+    - lastName
+    - name
+    - phoneNumber
+    type: object
+  users.UserRequest:
+    properties:
+      email:
+        type: string
+      lastName:
+        type: string
+      name:
+        type: string
+      phoneNumber:
+        type: string
+      role:
+        type: string
+    required:
+    - email
+    - lastName
+    - name
+    - phoneNumber
+    - role
+    type: object
+info:
+  contact: {}
+paths:
+  /users:
+    get:
+      description: Get a list of all users
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/users.User'
+            type: array
+      summary: Get all users
+      tags:
+      - users
+    post:
+      description: Create a new user
+      parameters:
+      - description: User details
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/users.UserRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/users.User'
+      summary: Create a user
+      tags:
+      - users
+  /users/{id}:
+    get:
+      description: Get a user by ID
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/users.User'
+      summary: Get a user by ID
+      tags:
+      - users
+swagger: "2.0"

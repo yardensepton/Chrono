@@ -1,0 +1,24 @@
+# English translations
+[welcome]
+other = "Welcome"
+
+[user_created]
+other = "User created successfully"
+
+[user_not_found]
+other = "User not found"
+
+[clinic_created]
+other = "Clinic created successfully"
+
+[clinic_not_found]
+other = "Clinic not found"
+
+[clinic_deleted]
+other = "Clinic deleted successfully"
+
+[invalid_request]
+other = "Invalid request data"
+
+[internal_error]
+other = "Internal server error"

@@ -1,0 +1,24 @@
+# Hebrew translations
+[welcome]
+other = "שלום"
+
+[user_created]
+other = "משתמש נוצר בהצלחה"
+
+[user_not_found]
+other = "משתמש לא קיים"
+
+[clinic_created]
+other = "קליניקה הוקמה בהצלחה"
+
+[clinic_not_found]
+other = "קליניקה לא קיימת"
+
+[clinic_deleted]
+other = "קליניקה נמחקה בהצלחה"
+
+[invalid_request]
+other = "בקשה לא תקינה"
+
+[internal_error]
+other = "שגיאה כללית"
